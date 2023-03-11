@@ -86,15 +86,15 @@ $(function () {
 	$(function () {
 		for (var i = window.location, o = $(".metismenu li a").filter(function () {
 			return this.href == i;
-		}).addClass("").parent().addClass("mm-active");;) {
+		}).addClass("").parent().addClass("mm-active"); ;) {
 			if (!o.is("li")) break;
 			o = o.parent("").addClass("mm-show").parent("").addClass("mm-active");
 		}
 	}),
-	// metismenu
-	$(function () {
-		$('#menu').metisMenu();
-	});
+		// metismenu
+		$(function () {
+			$('#menu').metisMenu();
+		});
 	/* Back To Top */
 	$(document).ready(function () {
 		$(window).on("scroll", function () {
@@ -120,25 +120,51 @@ $(function () {
 	});
 
 
-	$("#darkmode").on("click", function() {
+	$("#darkmode").on("click", function () {
 		$("html").attr("class", "dark-theme")
-	  }),
-	  
-	  $("#lightmode").on("click", function() {
-		$("html").attr("class", "light-theme")
-	  }),
-	  
-	  $("#darksidebar").on("click", function() {
-		$("html").attr("class", "dark-sidebar")
-	  })
+	}),
+
+		$("#lightmode").on("click", function () {
+			$("html").attr("class", "light-theme")
+		}),
+
+		$("#darksidebar").on("click", function () {
+			$("html").attr("class", "dark-sidebar")
+		})
 
 
-	  $("#ColorLessIcons").on("click", function () {
+	$("#ColorLessIcons").on("click", function () {
 		$("html").toggleClass("ColorLessIcons");
 	});
+
+
+
+	// Random Quotes Generator
+
+	const api = "https://api.quotable.io/random";
+
+	const quote = document.getElementById("quote");
+	const author = document.getElementById("author");
+	const btn = document.getElementById("btn");
+
+	btn.addEventListener("click", getQuote);
+
+	function getQuote() {
+		fetch(api)
+			.then((res) => res.json())
+			.then((data) => {
+				quote.innerHTML = `${data.content}`;
+				author.innerHTML = `- ${data.author}`;
+			});
+	}
+
+
+
 
 });
 
 /* perfect scrol bar */
 new PerfectScrollbar('.header-message-list');
 new PerfectScrollbar('.header-notifications-list');
+
+

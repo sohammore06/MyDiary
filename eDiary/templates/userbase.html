@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>eDiary Management System</title>
+    <title>my-Diary</title>
     <!--favicon-->
     <link rel="icon" href="{% static 'assets/images/logo-icon.png' %}" type="image/png"/>
     <!-- Vector CSS -->
@@ -39,7 +39,7 @@
                 <img src="{% static 'assets/images/logo-icon.png' %}" class="logo-icon-2" alt=""/>
             </div>
             <div>
-                <h4 class="logo-text">e-Diary</h4>
+                <h4 class="logo-text">my-Diary</h4>
             </div>
             <a href="javascript:;" class="toggle-btn ms-auto"> <i class="bx bx-menu"></i>
             </a>
@@ -117,7 +117,7 @@
             </div>
             <div class="flex-grow-1 search-bar">
                 <div class="input-group">
-                    <center><h3 class="text-danger">e-Diary Management System</h3></center>
+                    <!-- <center><h3 class="text-danger">e-Diary Management System</h3></center> -->
                 </div>
             </div>
             <div class="right-topbar ms-auto">
@@ -128,18 +128,23 @@
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown dropdown-user-profile">
+                    <li class="nav-item dropdown dropdown-user-profile ">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
                            data-bs-toggle="dropdown">
                             <div class="d-flex user-box align-items-center">
+                                <div class="parent-icon icon-color-8 float-left ms-0 me-2">
+                                    <i class="bx bx-user-circle"></i>
+                                </div>
                                 <div class="user-info">
-                                    <p class="user-name mb-0">{{request.user.first_name}} {{request.user.last_name}}</p>
+                                    <p class="user-name mb-0 float-right">{{request.user.first_name}} {{request.user.last_name}}</p>
                                 </div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="{% url 'profile' %}"><i
-                                    class="bx bx-user"></i><span>Profile</span></a>
+                            <a class="dropdown-item" href="{% url 'profile' %}">
+                                <i
+                                    class="bx bx-user">
+                                </i><span>Profile</span></a>
                             <div class="dropdown-divider mb-0"></div>
                             <a class="dropdown-item" href="{% url 'changePassword' %}"><i
                                     class="bx bx-cog"></i><span>Change Password</span></a>

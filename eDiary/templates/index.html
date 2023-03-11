@@ -7,13 +7,16 @@
     <!--page-content-wrapper-->
     <div class="page-content-wrapper">
         <div class="page-content">
-            <div class="row">
-                <div class="col-12 col-lg-12 d-flex">
-                    <div class="card radius-15 w-100">
-                        <div class="card-header border-bottom-0">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                     <img src="{% static 'assets/images/login-images/dashboard.jpg' %}" style="width: 1030px; height: 450px;">
+            <div class="row d-flex ">
+                <div class="col-12 col-lg-12">
+                    <div class="card radius-15 d-flex align-items-center" style="overflow: hidden;">
+                        <div class="card-header border-bottom-0 image-responsive">
+                            <div class="d-flex ">
+                                <div class="">
+                                    <!-- <img class="img-fluid" src="{% static 'assets/images/login-images/dashboard.jpg' %}" > -->
+                                    <div class="" id="typedtext">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -25,4 +28,105 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    
+	// Typewriter Animated Text
+
+	// set up text to print, each item in array is new line
+	var aText = new Array(
+		
+		`   
+		<h4 class="dash-title mt-3">How can writing a diary / journaling help you ?</h4>
+		<h5 class="dash-sub-title mt-4">1. Achieve Goals</h5>
+		<p class="dash-cont mt-3 mb-5 mb-5">
+			When you use your journal to write down your goals, you can keep better
+			track of your intentions. This will help you stay accountable and serve as a
+			reminder of what you need to do to reach your goals. Be sure to get
+			specific.
+		</p>
+
+		<h5 class="dash-sub-title mt-3">2. Track progress and growth</h5>
+		<p class="dash-cont mt-3 mb-5">
+			If you make journaling a regular habit, you can see how much progress or
+			growth you’ve made by revisiting previous entries.
+		</p>
+
+		<h5 class="dash-sub-title mt-3">3. Gain self-confidence</h5>
+		<p class="dash-cont mt-3 mb-5">
+			Seeing your progress can also give you a serious confidence boost. You can
+			feel proud looking back at the challenges you faced and seeing how far
+			you’ve come.
+		</p>
+
+		<h5 class="dash-sub-title mt-3">4. Improve writing and communication skills</h5>
+		<p class="dash-cont mt-3 mb-5">
+			Writing, like anything, improves with practice. When you journal every day,
+			you’re practicing the art of writing. And if you use a journal to express
+			your thoughts and ideas, it can help improve your communication skills.
+		</p>
+
+
+		<h5 class="dash-sub-title mt-3">5. Reduce stress and anxiety</h5>
+		<p class="dash-cont mt-3 mb-5">
+			Sometimes negative thoughts and emotions can run on a loop in our heads.
+			This can be stressful when you’re dealing with a challenging situation. And
+			it can even make your present situation feel worse. But if you stop and put
+			your emotions down on paper, it can help you release negative thoughts from
+			your mind. As you write, you may even come up with a solution you hadn’t
+			thought of before.
+		</p>
+
+
+		<h5 class="dash-sub-title mt-3">6. Find inspiration</h5>
+		<p class="dash-cont mt-3 mb-5">
+			Leonardo da Vinci drew some incredible invention ideas in his journals. Like
+			him, you can also use your journaling time to brainstorm or let your
+			imagination run wild. The inspiration that may pop up while you’re writing
+			or sketching might even surprise you.
+		</p>
+
+		<h5 class="dash-sub-title mt-3">7. Strengthen memory</h5>
+		<p class="dash-cont mt-3 mb-5">
+			The Journal of Experimental Psychology published research that shows how
+			writing your thoughts down can reduce intrusive thoughts about negative
+			events and improve working memory.* Even the simple act of writing something
+			down lets your brain know you want to remember it. That’s why note-taking is
+			such an effective practice when learning something new.
+		</p>`
+	);
+	var iSpeed = 50; // time delay of print out
+	var iIndex = 0; // start printing array at this posision
+	var iArrLength = aText[0].length; // the length of the text array
+	var iScrollAt = 20; // start scrolling up at this many lines
+
+	var iTextPos = 0; // initialise text position
+	var sContents = ''; // initialise contents variable
+	var iRow; // initialise current row
+
+	function typewriter() {
+		sContents = ' ';
+		iRow = Math.max(0, iIndex - iScrollAt);
+		var destination = document.getElementById("typedtext");
+
+		while (iRow < iIndex) {
+			sContents += aText[iRow++] + '<br />';
+		}
+		destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + " |";
+		if (iTextPos++ == iArrLength) {
+			iTextPos = 0;
+			iIndex++;
+			if (iIndex != aText.length) {
+				iArrLength = aText[iIndex].length;
+				setTimeout("typewriter()", 500);
+			}
+		} else {
+			setTimeout("typewriter()", iSpeed);
+		}
+	}
+
+
+	typewriter();
+</script>
 {% endblock %}
